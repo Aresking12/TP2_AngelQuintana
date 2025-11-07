@@ -463,3 +463,410 @@ header {
         justify-content: center;
     }
 }
+
+/* Animaciones adicionales y efectos avanzados */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(79, 70, 229, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(79, 70, 229, 0.8), 0 0 30px rgba(79, 70, 229, 0.6);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Efectos adicionales para las cajas de descripción */
+.description-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(79, 70, 229, 0.05);
+    transition: width 0.5s ease;
+    z-index: -1;
+}
+
+.description-box:hover::after {
+    width: 100%;
+}
+
+.description-box {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sombras y profundidad mejoradas */
+.content-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #4f46e5, #9333ea, #ec4899, #f59e0b);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.content-card:hover::before {
+    opacity: 0.3;
+    animation: rotate 3s linear infinite;
+}
+
+.content-card {
+    position: relative;
+    z-index: 1;
+}
+
+/* Mejoras visuales para headers */
+.titulo-principal {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: -1px;
+    position: relative;
+}
+
+.titulo-principal::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    border-radius: 2px;
+}
+
+/* Efectos para botones mejorados */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.btn:active::after {
+    width: 200px;
+    height: 200px;
+    animation: ripple 0.6s ease-out;
+}
+
+/* Gradientes animados para fondos */
+.index-page {
+    background: linear-gradient(135deg, #e0f2fe 0%, #c7d2fe 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+}
+
+.miembros-page {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+}
+
+.galeria-page {
+    background: linear-gradient(135deg, #fae8ff 0%, #fbcfe8 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Efectos de texto */
+.subtitulo {
+    animation: fadeIn 1s ease-out 0.3s both;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4f46e5, #9333ea);
+    transition: width 0.5s ease;
+}
+
+.content-card:hover .section-title::before {
+    width: 100%;
+}
+
+/* Mejoras para la tabla */
+.tabla-miembros thead tr {
+    position: relative;
+    overflow: hidden;
+}
+
+.tabla-miembros thead tr::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.tabla-miembros tbody tr {
+    position: relative;
+}
+
+.tabla-miembros tbody tr::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, #0d9488, #14b8a6);
+    transition: height 0.3s ease;
+}
+
+.tabla-miembros tbody tr:hover::before {
+    height: 100%;
+}
+
+/* Efectos avanzados para badges */
+.badge {
+    position: relative;
+    overflow: hidden;
+}
+
+.badge::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.tabla-miembros tbody tr:hover .badge::before {
+    width: 100px;
+    height: 100px;
+}
+
+.badge {
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3);
+    transition: all 0.3s ease;
+}
+
+.tabla-miembros tbody tr:hover .badge {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.5);
+}
+
+/* Efectos para galería mejorados */
+.card-image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(167, 139, 250, 0.3), rgba(192, 132, 252, 0.3));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.card-miembro:hover .card-image-wrapper::after {
+    opacity: 1;
+}
+
+.cargo-tag {
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.card-miembro:hover .cargo-tag {
+    animation: none;
+}
+
+/* Efectos de profundidad para cards */
+.card-info {
+    position: relative;
+}
+
+.card-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #7e22ce, #9333ea, #a855f7);
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+
+.card-miembro:hover .card-info::before {
+    transform: scaleX(1);
+}
+
+/* Scrollbar personalizado */
+.table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #0d9488, #14b8a6);
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, #14b8a6, #0d9488);
+}
+
+/* Efectos de loading y transiciones */
+body {
+    transition: background 0.5s ease;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selección de texto personalizada */
+::selection {
+    background: rgba(79, 70, 229, 0.3);
+    color: #1e40af;
+}
+
+::-moz-selection {
+    background: rgba(79, 70, 229, 0.3);
+    color: #1e40af;
+}
+
+/* Footer mejorado */
+.footer {
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #9ca3af, transparent);
+}
+
+.footer p {
+    margin-top: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer:hover p {
+    color: #4b5563;
+}
